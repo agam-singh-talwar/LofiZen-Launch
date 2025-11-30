@@ -34,13 +34,11 @@ async function main() {
             }
         });
 
-        app.listen(port, () => {
-            console.log(`Server running at http://localhost:${port}`);
-        });
-
     } catch (e) {
         console.error('Error connecting to MongoDB:', e);
     }
 }
 
 main();
+
+module.exports = app;
