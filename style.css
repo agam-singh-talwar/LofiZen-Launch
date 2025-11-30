@@ -1,0 +1,131 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1536566482680-fca31930a085?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    color: #1c1e21;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* rgba(82, 148, 206, 0.2), 0 0 0 4px rgba(82, 148, 206, 0.5); */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(82, 148, 206, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.left-column {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.caption {
+    font-size: 1.1rem;
+    color: #606770;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#waitlist-form {
+    display: flex;
+    flex-direction: row;
+}
+
+#email {
+    padding: 15px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px 0 0 6px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    margin-right: -1px; /* To make the button and input look connected */
+}
+
+#email:focus {
+    outline: none;
+    border-color: rgb(82, 148, 206);
+    box-shadow: 0 0 0 2px rgba(82, 148, 206, 0.2);
+    z-index: 2;
+    position: relative;
+}
+
+button {
+    background-color: rgb(82, 148, 206);
+    color: #ffffff;
+    border: 1px solid rgb(82, 148, 206);
+    padding: 15px 20px;
+    border-radius: 0 6px 6px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap; /* Prevents the button text from wrapping */
+}
+
+button:hover {
+    background-color: rgb(70, 130, 180);
+}
+
+.small-note {
+    font-size: 0.8rem;
+    color: #606770;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.app-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        flex: none;
+        width: 100%;
+    }
+
+    .left-column {
+        padding: 40px;
+    }
+}
