@@ -2,9 +2,9 @@
   "name": "lofilaunch-backend",
   "version": "1.0.0",
   "description": "Backend for LofiLaunch waitlist",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "express": "^4.19.2",

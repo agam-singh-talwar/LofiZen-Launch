@@ -2,18 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "/server.js",
+      "src": "server/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/join-waitlist",
-      "dest": "server.js"
+      "dest": "server/server.js"
     },
     {
       "src": "/",
-      "dest": "server.js"
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }

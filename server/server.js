@@ -7,11 +7,12 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname))); // Serve static files like index.html
+// Serve static files from the client folder
+app.use(express.static(path.join(__dirname, "../client")));
 
 // Serve index.html for root path
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 const uri = process.env.MONGODB_URI;
