@@ -43,6 +43,11 @@ async function main() {
       }
     });
 
+    // Catch-all for any other routes - serves index.html
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "index.html"));
+    });
+
     // Start the server
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
