@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "public": false,
-  "buildCommand": "true",
-  "outputDirectory": "public",
+  "public": true,
   "functions": {
     "api/**/*.js": {
       "memory": 1024,
