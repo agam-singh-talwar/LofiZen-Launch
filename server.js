@@ -37,6 +37,11 @@ async function main() {
           .json({ success: false, message: "Internal server error" });
       }
     });
+
+    // Start the server
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
   } catch (e) {
     console.error("Error connecting to MongoDB:", e);
   }

@@ -8,16 +8,8 @@
   ],
   "routes": [
     {
-      "src": "/join-waitlist",
+      "src": "/(.*)",
       "dest": "server.js"
-    },
-    {
-      "src": "/(?!join-waitlist)(.*)",
-      "dest": "/$1"
-    },
-    {
-      "src": "/",
-      "dest": "index.html"
     }
   ]
 }
