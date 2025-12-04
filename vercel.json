@@ -10,6 +10,10 @@
     {
       "src": "/join-waitlist",
       "dest": "server.js"
+    },
+    {
+      "src": "/((?!api/.*).*)",
+      "dest": "/$1"
     }
   ]
 }

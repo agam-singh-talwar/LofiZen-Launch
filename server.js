@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-// app.use(express.static(path.join(__dirname))); // Serve static files like index.html
+app.use(express.static(path.join(__dirname))); // Serve static files like index.html
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
