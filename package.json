@@ -1,14 +1,11 @@
 {
-  "name": "lofilaunch-backend",
+  "name": "lofilaunch",
   "version": "1.0.0",
-  "description": "Backend for LofiLaunch waitlist",
-  "main": "server/server.js",
+  "description": "LofiLaunch - Lo-fi focus music for macOS with smart audio management",
   "scripts": {
-    "start": "node server/server.js"
+    "dev": "vercel dev"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "mongodb": "^6.5.0",
-    "dotenv": "^16.4.5"
+    "mongodb": "^6.5.0"
   }
 }
