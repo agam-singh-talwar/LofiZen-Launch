@@ -8,14 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/join-waitlist",
       "dest": "server.js"
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/(.*)",
-      "destination": "server.js"
+      "src": "/",
+      "dest": "server.js"
     }
   ]
 }
