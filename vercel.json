@@ -12,8 +12,12 @@
       "dest": "server.js"
     },
     {
-      "src": "/((?!api/.*).*)",
+      "src": "/(?!join-waitlist)(.*)",
       "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "dest": "index.html"
     }
   ]
 }
