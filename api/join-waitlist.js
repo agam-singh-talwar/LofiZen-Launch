@@ -54,11 +54,11 @@ async function getMongoClient() {
 
   try {
     await client.connect();
-    console.log("MongoDB connected successfully");
+    //console.log("MongoDB connected successfully");
     cachedClient = client;
     return client;
   } catch (error) {
-    console.error("Failed to connect to MongoDB:", error.message);
+    // console.error("Failed to connect to MongoDB:", error.message);
     throw new Error(`MongoDB connection failed: ${error.message}`);
   }
 }
@@ -79,13 +79,13 @@ module.exports = async (req, res) => {
   }
 
   try {
-    console.log("Request body:", JSON.stringify(req.body));
+    // console.log("Request body:", JSON.stringify(req.body));
 
     // Parse and validate the email from request body
     const { email } = req.body;
 
     if (!email || typeof email !== "string" || email.trim() === "") {
-      console.log("Validation failed: email is empty or invalid type");
+      // console.log("Validation failed: email is empty or invalid type");
       return res.status(400).json({
         success: false,
         message: "Email is required and must be a non-empty string",
@@ -95,23 +95,23 @@ module.exports = async (req, res) => {
     // Basic email validation
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(email)) {
-      console.log("Validation failed: invalid email format");
+      // console.log("Validation failed: invalid email format");
       return res.status(400).json({
         success: false,
         message: "Invalid email format",
       });
     }
 
-    console.log("Attempting to connect to MongoDB...");
+    // console.log("Attempting to connect to MongoDB...");
 
     // Connect to MongoDB and insert the email
     const client = await getMongoClient();
-    console.log("Successfully connected to MongoDB");
+    // console.log("Successfully connected to MongoDB");
 
     const database = client.db("waitlist");
     const collection = database.collection("emails");
 
-    console.log("Inserting email into database:", email);
+    // console.log("Inserting email into database:", email);
 
     // Insert the email with a timestamp
     const result = await collection.insertOne({
@@ -119,7 +119,7 @@ module.exports = async (req, res) => {
       joinedAt: new Date(),
     });
 
-    console.log("Email inserted successfully:", result.insertedId);
+    // console.log("Email inserted successfully:", result.insertedId);
 
     return res.status(200).json({
       success: true,
@@ -127,9 +127,9 @@ module.exports = async (req, res) => {
       insertedId: result.insertedId.toString(),
     });
   } catch (error) {
-    console.error("Error in join-waitlist API:", error);
-    console.error("Error type:", error.constructor.name);
-    console.error("Error message:", error.message);
+    // console.error("Error in join-waitlist API:", error);
+    // console.error("Error type:", error.constructor.name);
+    // console.error("Error message:", error.message);
 
     return res.status(500).json({
       success: false,

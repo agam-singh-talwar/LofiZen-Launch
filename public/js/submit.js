@@ -26,13 +26,13 @@ document
       body: JSON.stringify({ email: email }),
     })
       .then((response) => {
-        console.log("Response status:", response.status);
-        console.log("Response headers:", response.headers);
+        // console.log("Response status:", response.status);
+        // console.log("Response headers:", response.headers);
 
         if (!response.ok) {
           // Try to parse error response
           return response.text().then((text) => {
-            console.error("Error response text:", text);
+            // console.error("Error response text:", text);
             try {
               return JSON.parse(text);
             } catch (e) {
@@ -44,7 +44,7 @@ document
         return response.json();
       })
       .then((data) => {
-        console.log("Response data:", data);
+        // console.log("Response data:", data);
 
         if (data.success) {
           button.textContent = "Thanks for joining!";
@@ -57,7 +57,7 @@ document
         }
       })
       .catch((error) => {
-        console.error("Fetch error:", error);
+        // console.error("Fetch error:", error);
         alert("Error: " + error.message);
         button.textContent = originalText;
         button.disabled = false;
