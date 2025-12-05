@@ -13,6 +13,11 @@ document
       return;
     }
 
+    // Disable button during submission
+    button.disabled = true;
+    const originalText = button.textContent;
+    button.textContent = "Submitting...";
+
     fetch("/api/join-waitlist", {
       method: "POST",
       headers: {
@@ -20,18 +25,41 @@ document
       },
       body: JSON.stringify({ email: email }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        console.log("Response status:", response.status);
+        console.log("Response headers:", response.headers);
+
+        if (!response.ok) {
+          // Try to parse error response
+          return response.text().then((text) => {
+            console.error("Error response text:", text);
+            try {
+              return JSON.parse(text);
+            } catch (e) {
+              throw new Error(`HTTP ${response.status}: ${text}`);
+            }
+          });
+        }
+
+        return response.json();
+      })
       .then((data) => {
+        console.log("Response data:", data);
+
         if (data.success) {
           button.textContent = "Thanks for joining!";
           button.disabled = true;
           emailInput.disabled = true;
         } else {
-          alert("Something went wrong. Please try again.");
+          alert("Error: " + (data.message || "Something went wrong"));
+          button.textContent = originalText;
+          button.disabled = false;
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
-        alert("Something went wrong. Please try again.");
+        console.error("Fetch error:", error);
+        alert("Error: " + error.message);
+        button.textContent = originalText;
+        button.disabled = false;
       });
   });
