@@ -39,6 +39,11 @@ async function getMongoClient() {
   console.log("Creating new MongoDB client and connecting...");
 
   const client = new MongoClient(uri, {
+    serverApi: {
+      version: "1",
+      strict: true,
+      deprecationErrors: true,
+    },
     maxPoolSize: 1,
     minPoolSize: 0,
     maxIdleTimeMS: 10000,
