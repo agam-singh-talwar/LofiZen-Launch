@@ -141,6 +141,7 @@ button:hover {
 
     .left-column {
         padding: 40px;
+        padding-right: 40px;
     }
 
     h1 {
@@ -159,6 +160,7 @@ button:hover {
 @media (max-width: 768px) {
     .left-column {
         padding: 30px;
+        padding-right: 30px;
     }
 
     h1 {
@@ -192,6 +194,7 @@ button:hover {
     }
     .left-column {
         padding: 20px;
+        padding-right: 20px;
         height: auto; /* Allow left column to grow */
     }
 
