@@ -39,6 +39,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #000;
+    min-height: 50vh; /* Add a minimum height */
 }
 
 .logo {
@@ -130,6 +131,7 @@ button:hover {
 @media (max-width: 992px) {
     .container {
         flex-direction: column;
+        height: auto; /* Allow container to grow */
     }
 
     .left-column, .right-column {
@@ -147,6 +149,10 @@ button:hover {
 
     .caption {
         font-size: 1rem;
+    }
+    .right-column {
+        min-height: auto; /* Reset min-height */
+        height: 50vh; /* Set a specific height for medium screens */
     }
 }
 
@@ -173,16 +179,20 @@ button:hover {
     button {
         border-radius: 6px;
     }
+    .right-column {
+        height: 40vh; /* Adjust height for smaller tablets */
+    }
 }
 
 @media (max-width: 576px) {
     .container {
         width: 100%;
         border-radius: 0;
-        height: 100vh;
+        height: 100%;
     }
     .left-column {
         padding: 20px;
+        height: auto; /* Allow left column to grow */
     }
 
     h1 {
@@ -204,5 +214,8 @@ button:hover {
 
     .logo-text {
         font-size: 2rem;
+    }
+    .right-column {
+        height: 30vh; /* Adjust height for mobile phones */
     }
 }
